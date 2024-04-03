@@ -162,7 +162,7 @@
   /* preloder ended */
 
   .main{
-    background-color: aqua;
+    background-color: white;
     width: 100vw;
     height: 100vh;
     align-content: center;
@@ -172,6 +172,10 @@
     margin: 0 auto;
     width: 500px;
     height: 500px;
+  }
+
+  .submain h1{
+    text-align: center;
   }
 
   .main img{
