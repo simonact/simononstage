@@ -90,6 +90,7 @@
   }
   
   body {
+    margin: 0%;
     min-height: 100vh;
     background-color: #1d2630;
     display: flex;
@@ -155,3 +156,20 @@
     transform: rotate3D(.5, 1, 2, 90deg);
   }
   
+
+
+
+  /* preloder ended */
+
+  .main{
+    background-color: aqua;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    align-content: center;
+  }
+
+  .main img{
+    margin: 0 auto;
+    padding: 0 auto;
+  }
