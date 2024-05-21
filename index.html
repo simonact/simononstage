@@ -32,7 +32,15 @@
             place-items: center;
         }
 
-        .logo{
+        .text-border {
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            padding: 10px;
+            border: 2px solid #ff7f50; /* Orange border */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow */
+            border-radius: 10px;
+        }
+
+        .logo {
             border-radius: 90px;
         }
 
@@ -81,8 +89,8 @@
         }
         .rating > label {
             display: inline-block;
-            padding: 5px;
-            font-size: 24px;
+            padding: 10px;
+            font-size: 32px; /* Increased star size */
             cursor: pointer;
             color: #fff; /* White star color */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adding shadow */
@@ -166,18 +174,20 @@
     <!-- Main Content -->
     <main>
         <section id="home" class="section-bg">
-            <h1>Welcome to SR Agency</h1>
+            <div class="text-border">
+                <h1>Welcome to SR Agency</h1>
+            </div>
         </section>
         <hr>
         <section id="about" class="section-bg">
-            <div>
+            <div class="text-border">
                 <h2>About Us</h2>
                 <p>Information about your agency.</p>
             </div>
         </section>
         <hr>
         <section id="enquiry" class="section-bg">
-            <div>
+            <div class="text-border">
                 <h2>Enquiry</h2>
                 <form id="enquiry-form">
                     <div class="form-group">
@@ -198,7 +208,7 @@
         </section>
         <hr>
         <section id="ask-for-rate" class="section-bg">
-            <div>
+            <div class="text-border">
                 <h2>Rate Us</h2>
                 <form id="rate-form">
                     <div class="form-group">
@@ -263,4 +273,3 @@
     </script>
 </body>
 </html>
-
