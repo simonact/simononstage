@@ -1,36 +1,68 @@
-/* styles.css */
 body, html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Open Sans', sans-serif;
-  scroll-behavior: smooth;
-}
-
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #343a40; /* Dark gray text */
 }
 
 .section-bg {
-  height: 100vh;
+  min-height: 100vh;
   background-size: cover;
   background-position: center;
   padding: 20px;
   text-align: center;
+  color: #343a40; /* Dark gray text */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.section-bg h1, .section-bg h2, .section-bg p {
+.text-border {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 20px;
+  border: 2px solid #ff7f50; /* Orange border */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.logo {
+  border-radius: 50%;
+  height: 40px;
+}
+
+.navbar {
+  background-color: #343a40 !important; /* Dark gray navbar */
+}
+
+.navbar-brand img {
+  height: 40px;
+}
+
+.navbar-brand span {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
   color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff !important; /* White links */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #ffc107 !important; /* Yellow on hover */
+}
+
+footer {
+  background-color: #343a40;
+  color: #fff; /* White text */
+  padding: 20px 0;
 }
 
 footer .social-links a {
@@ -43,6 +75,173 @@ footer .social-links a:hover {
   text-decoration: underline;
 }
 
-footer {
-  margin-top: auto;
+/* Star rating CSS */
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  display: inline-flex;
+  gap: 5px;
+}
+.rating > label {
+  display: inline-block;
+  padding: 10px;
+  font-size: 32px; /* Increased star size */
+  cursor: pointer;
+  color: #ccc; /* Default star color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Adding shadow */
+}
+.rating > input {
+  display: none;
+}
+.rating > label::before {
+  content: '\2605'; /* Star character */
+}
+.rating > input:checked ~ label:before,
+.rating > label:hover ~ label:before,
+.rating > label:hover:before {
+  color: orange; /* Filled star color */
+}
+
+/* Orange color for submit button */
+.btn-primary {
+  background-color: #ff7f50;
+  border-color: #ff7f50;
+}
+.btn-primary:hover {
+  background-color: #ff6347;
+  border-color: #ff6347;
+}
+
+/* Add background images */
+#home {
+  background-image: url('assets/1.jpg');
+}
+#about {
+  background-image: url('assets/2.jpg');
+}
+#enquiry {
+  background-image: url('assets/3.jpg');
+}
+#ask-for-rate {
+  background-image: url('assets/2.jpg');
+}
+
+/* HR styling */
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 96%;
+  background-color: #343a40;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Preloader styling */
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: #fff url('assets/preloader.gif') no-repeat center center;
+}
+
+/* Portfolio styling */
+.carousel-inner img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item .small-images {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.small-images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.portfolio-item {
+  transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-item:hover {
+  transform: scale(1.1);
+}
+
+.like-comment-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.like-comment-buttons button {
+  background-color: #ff7f50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.like-comment-buttons button:hover {
+  background-color: #ff6347;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.like-btn:hover {
+  color: red; /* Change to pink or any other color you like */
+}
+
+.comment-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.comment-btn:hover {
+  color: #ff7f50; /* Change to your desired color */
+}
+
+/* Heart icon styling */
+.heart-icon {
+  font-size: 24px;
+  color: #ccc; /* Default color */
+  transition: color 0.3s;
+}
+
+.heart-icon:hover {
+  color: red; /* Change to pink or any other color you like */
+}
+
+/* Number of likes styling */
+.like-count {
+  font-size: 18px;
+  color: #333; /* Default color */
+  margin-left: 5px;
 }
