@@ -165,50 +165,40 @@
     <hr>
     <section id="portfolio" class="section-bg">
         <div class="text-border">
-            <h2>Portfolio        </h2>
+            <h2>Portfolio</h2>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="slide1">
                         <img src="assets/1.jpg" alt="Slide 1">
-                        <div class="like-comment-buttons">
-                            <button class="like-btn" data-id="1"><i class="fas fa-heart heart-icon"></i><span class="like-count">0</span></button>
-                            <button class="comment-btn" data-id="1">Comment</button>
-                            <div class="comment-section" id="comments-1">
-                                <input type="text" class="form-control comment-input" placeholder="Add a comment">
-                                <div class="comments-list"></div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="slide2">
                         <img src="assets/2.jpg" alt="Slide 2">
-                        <div class="like-comment-buttons">
-                            <button class="like-btn" data-id="2"><i class="fas fa-heart heart-icon"></i><span class="like-count">0</span></button>
-                            <button class="comment-btn" data-id="2">Comment</button>
-                            <div class="comment-section" id="comments-2">
-                                <input type="text" class="form-control comment-input" placeholder="Add a comment">
-                                <div class="comments-list"></div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" id="slide3">
                         <img src="assets/3.jpg" alt="Slide 3">
-                        <div class="like-comment-buttons">
-                            <button class="like-btn" data-id="3"><i class="fas fa-heart heart-icon"></i><span class="like-count">0</span></button>
-                            <button class="comment-btn" data-id="3">Comment</button>
-                            <div class="comment-section" id="comments-3">
-                                <input type="text" class="form-control comment-input" placeholder="Add a comment">
-                                <div class="comments-list"></div>
-                            </div>
-                        </div>
+                    </div>
+                    <!-- Add more slides here -->
+                    <div class="swiper-slide" id="slide4">
+                        <img src="assets/4.jpg" alt="Slide 4">
+                    </div>
+                    <div class="swiper-slide" id="slide5">
+                        <img src="assets/5.jpg" alt="Slide 5">
                     </div>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="like-comment-buttons" id="like-comment-buttons-1">
+                <button class="like-btn" data-id="1" onclick="likeSlide(1)"><i class="fas fa-heart heart-icon"></i><span class="like-count" id="like-count-1">0</span></button>
+                <button class="comment-btn" data-id="1" onclick="toggleComment(1)">Comment</button>
+                <div class="comment-section" id="comments-1">
+                    <input type="text" class="form-control comment-input" placeholder="Add a comment">
+                    <div class="comments-list"></div>
+                </div>
             </div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </section>
     <hr>
     <section id="enquiry" class="section-bg">
@@ -272,6 +262,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
+    let likes = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}; // Object to store likes for each slide
+
+    // Function to handle like button click
+    function likeSlide(slideId) {
+        likes[slideId]++;
+        document.getElementById('like-count-' + slideId).innerText = likes[slideId];
+        document.getElementById('like-comment-buttons-' + slideId).classList.add('clicked');
+    }
+
+    // Function to handle comment button click
+    function toggleComment(slideId) {
+        const commentSection = document.getElementById('comments-' + slideId);
+        commentSection.style.display = (commentSection.style.display === 'none') ? 'block' : 'none';
+    }
+
     $(document).ready(function() {
         // Initialize Swiper
         const swiper = new Swiper('.swiper-container', {
@@ -286,24 +291,6 @@
             },
         });
 
-        // Handle like button click
-        $('.like-btn').click(function() {
-            const btn = $(this);
-            const likeCount = btn.find('.like-count');
-            let currentCount = parseInt(likeCount.text());
-            currentCount++;
-            likeCount.text(currentCount);
-            btn.toggleClass('clicked');
-        });
-
-        // Handle comment button click
-        $('.comment-btn').click(function() {
-            const btn = $(this);
-            const postId = btn.data('id');
-            const commentSection = $('#comments-' + postId);
-            commentSection.toggle();
-        });
-
         // Handle comment input enter key
         $('.comment-input').keypress(function(e) {
             if (e.which == 13) {
@@ -316,20 +303,19 @@
             }
         });
 
-// Handle form submissions
-$('#enquiry-form').submit(function(event) {
-    event.preventDefault();
-    // Add your form submission logic here
-    // For example, you can send the form data using AJAX
-});
+        // Handle form submissions
+        $('#enquiry-form').submit(function(event) {
+            event.preventDefault();
+            // Add your form submission logic here
+            // For example, you can send the form data using AJAX
+        });
 
-$('#rate-form').submit(function(event) {
-    event.preventDefault();
-    // Add your form submission logic here
-    // For example, you can send the form data using AJAX
-});
-});
+        $('#rate-form').submit(function(event) {
+            event.preventDefault();
+            // Add your form submission logic here
+            // For example, you can send the form data using AJAX
+        });
+    });
 </script>
 </body>
 </html>
-
