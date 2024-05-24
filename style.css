@@ -4,8 +4,8 @@ body, html {
   width: 100%;
   height: 100%;
   font-family: 'Poppins', sans-serif;
-  background-color: #f8f9fa; /* Light gray background */
-  color: #343a40; /* Dark gray text */
+  background-color: #f8f9fa;
+  color: #343a40;
 }
 
 .section-bg {
@@ -14,7 +14,7 @@ body, html {
   background-position: center;
   padding: 20px;
   text-align: center;
-  color: #343a40; /* Dark gray text */
+  color: #343a40;
   position: relative;
   display: flex;
   align-items: center;
@@ -22,10 +22,10 @@ body, html {
 }
 
 .text-border {
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  border: 2px solid #ff7f50; /* Orange border */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  border: 2px solid #ff7f50;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   max-width: 600px;
   margin: 0 auto;
@@ -37,7 +37,7 @@ body, html {
 }
 
 .navbar {
-  background-color: #343a40 !important; /* Dark gray navbar */
+  background-color: #343a40 !important;
 }
 
 .navbar-brand img {
@@ -52,16 +52,16 @@ body, html {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: #fff !important; /* White links */
+  color: #fff !important;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #ffc107 !important; /* Yellow on hover */
+  color: #ffc107 !important;
 }
 
 footer {
   background-color: #343a40;
-  color: #fff; /* White text */
+  color: #fff;
   padding: 20px 0;
 }
 
@@ -75,58 +75,62 @@ footer .social-links a:hover {
   text-decoration: underline;
 }
 
-/* Star rating CSS */
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
   display: inline-flex;
   gap: 5px;
 }
+
 .rating > label {
   display: inline-block;
   padding: 10px;
-  font-size: 32px; /* Increased star size */
+  font-size: 32px;
   cursor: pointer;
-  color: #ccc; /* Default star color */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Adding shadow */
+  color: #ccc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
+
 .rating > input {
   display: none;
 }
+
 .rating > label::before {
-  content: '\2605'; /* Star character */
+  content: '\2605';
 }
+
 .rating > input:checked ~ label:before,
 .rating > label:hover ~ label:before,
 .rating > label:hover:before {
-  color: orange; /* Filled star color */
+  color: orange;
 }
 
-/* Orange color for submit button */
 .btn-primary {
   background-color: #ff7f50;
   border-color: #ff7f50;
 }
+
 .btn-primary:hover {
   background-color: #ff6347;
   border-color: #ff6347;
 }
 
-/* Add background images */
 #home {
   background-image: url('assets/1.jpg');
 }
+
 #about {
   background-image: url('assets/2.jpg');
 }
+
 #enquiry {
   background-image: url('assets/3.jpg');
 }
+
 #ask-for-rate {
   background-image: url('assets/2.jpg');
 }
 
-/* HR styling */
 hr {
   border: 0;
   clear: both;
@@ -138,7 +142,6 @@ hr {
   margin-bottom: 20px;
 }
 
-/* Preloader styling */
 #preloader {
   position: fixed;
   left: 0;
@@ -150,7 +153,6 @@ hr {
   background: #fff url('assets/preloader.gif') no-repeat center center;
 }
 
-/* Portfolio styling */
 .carousel-inner img {
   width: 100%;
   height: 600px;
@@ -213,7 +215,7 @@ hr {
 }
 
 .like-btn:hover {
-  color: red; /* Change to pink or any other color you like */
+  color: red;
 }
 
 .comment-btn {
@@ -225,23 +227,21 @@ hr {
 }
 
 .comment-btn:hover {
-  color: #ff7f50; /* Change to your desired color */
+  color: #ff7f50;
 }
 
-/* Heart icon styling */
 .heart-icon {
   font-size: 24px;
-  color: #ccc; /* Default color */
+  color: #ccc;
   transition: color 0.3s;
 }
 
 .heart-icon:hover {
-  color: red; /* Change to pink or any other color you like */
+  color: red;
 }
 
-/* Number of likes styling */
 .like-count {
   font-size: 18px;
-  color: #333; /* Default color */
+  color: #333;
   margin-left: 5px;
 }

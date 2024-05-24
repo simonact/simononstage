@@ -22,11 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Like and comment button functionality
     document.querySelectorAll('.like-btn').forEach(button => {
         button.addEventListener('click', async () => {
             const id = button.getAttribute('data-id');
-            const response = await fetch('/like', { // Replace '/like' with your actual like endpoint URL
+            const response = await fetch('/like', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ id })
             });
             const result = await response.json();
-            // Update like count
             const likeCountSpan = button.querySelector('.like-count');
             likeCountSpan.textContent = result.likes;
             alert(`Liked picture with ID: ${id}. Total likes: ${result.likes}`);
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = button.getAttribute('data-id');
             const comment = prompt('Enter your comment:');
             if (comment) {
-                const response = await fetch('/comment', { // Replace '/comment' with your actual comment endpoint URL
+                const response = await fetch('/comment', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -54,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({ id, comment })
                 });
                 const result = await response.json();
-                alert(`Commented on picture with ID: ${id}. Comments: ${result.comments.join(', ')}`);
+                const commentsSection = document.getElementById(`comments-${id}`);
+                commentsSection.innerHTML = result.comments.map(c => `<p>${c}</p>`).join('');
+                alert(`Commented on picture with ID: ${id}.`);
             }
         });
     });
