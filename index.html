@@ -41,15 +41,9 @@
             margin: 0 auto;
         }
         #portfolio .text-border {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border: 2px solid #ff7f50;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
             height: 80vh;
             max-width: 80%;
             min-width: 600px;
-            margin: 0 auto;
         }
         .logo {
             border-radius: 50%;
@@ -63,36 +57,43 @@
             height: 100%;
         }
         .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background:transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Change flex direction to column */
-}
-
-        .swiper-slide img {
-         max-width: 100%;
-         height: 50vh;
-         max-height: calc(100% - 40px); /* Adjust this value based on your design */
-        object-fit: cover; /* Maintain aspect ratio and cover container */
-}
-
-        }
-        .like-comment-buttons {
+            text-align: center;
+            font-size: 18px;
+            background: transparent;
             display: flex;
             justify-content: center;
-            margin-top: 10px;
+            align-items: center;
+            flex-direction: column;
+        }
+        .swiper-slide img {
+            max-width: 100%;
+            height: 50vh;
+            max-height: calc(100% - 40px);
+            object-fit: cover;
         }
         .like-btn, .comment-btn {
             margin: 5px;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #ff7f50;
-            color: white;
+            color: #ff7f50;
             cursor: pointer;
+            transition: color 0.3s;
+        }
+        .like-btn:hover, .comment-btn:hover {
+            color: #ff0000;
+        }
+        .like-btn.clicked {
+            color: #ff0000;
+        }
+        .heart-icon {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            background-color: transparent;
+        }
+        .like-comment-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
         }
         .like-count {
             margin-left: 5px;
@@ -164,7 +165,7 @@
     <hr>
     <section id="portfolio" class="section-bg">
         <div class="text-border">
-            <h2>Portfolio</h2>
+            <h2>Portfolio        </h2>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -288,11 +289,11 @@
         // Handle like button click
         $('.like-btn').click(function() {
             const btn = $(this);
-            const postId = btn.data('id');
             const likeCount = btn.find('.like-count');
             let currentCount = parseInt(likeCount.text());
             currentCount++;
             likeCount.text(currentCount);
+            btn.toggleClass('clicked');
         });
 
         // Handle comment button click
@@ -314,7 +315,21 @@
                 commentList.append('<div class="comment">' + commentText + '</div>');
             }
         });
-    });
+
+// Handle form submissions
+$('#enquiry-form').submit(function(event) {
+    event.preventDefault();
+    // Add your form submission logic here
+    // For example, you can send the form data using AJAX
+});
+
+$('#rate-form').submit(function(event) {
+    event.preventDefault();
+    // Add your form submission logic here
+    // For example, you can send the form data using AJAX
+});
+});
 </script>
 </body>
 </html>
+
